@@ -1,13 +1,76 @@
 /* ==========================================================================
    ANIMATIONS.JS — Rumit Walia Portfolio
-   Parallax, scroll-triggered effects, accordion logic
+   Parallax, scroll-triggered effects, accordion logic, events rendering
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+  renderEventsFromData();
   initAccordion();
   initParallax();
   initEventsTabs();
 });
+
+/* ── Dynamic Events Rendering ─────────────────────────────────────────── */
+
+function renderEventsFromData() {
+  const accordion = document.getElementById('events-accordion');
+  const yearNav = document.getElementById('year-nav');
+
+  if (!accordion || !window.EVENTS_DATA) return;
+
+  const years = Object.keys(window.EVENTS_DATA).sort((a, b) => {
+    if (a === 'pre-2015') return -1;
+    if (b === 'pre-2015') return -1;
+    return parseInt(a) - parseInt(b);
+  });
+
+  // Render year nav buttons
+  if (yearNav) {
+    yearNav.innerHTML = years.map((year, i) =>
+      `<button class="events-year-nav__btn${i === 0 ? ' active' : ''}" data-year="${year}">${window.EVENTS_DATA[year].label}</button>`
+    ).join('');
+  }
+
+  // Render accordion items
+  accordion.innerHTML = years.map((year, i) => {
+    const data = window.EVENTS_DATA[year];
+    const isFirst = i === 0;
+
+    const noteHTML = data.note
+      ? `<p class="events-note">${data.note}</p>`
+      : '';
+
+    const eventsHTML = data.events.length
+      ? `<ul class="events-list">
+          ${data.events.map(evt => {
+            // Try to extract a date prefix (e.g. "Jan", "Feb 28", "Mar 22–31")
+            const dateMatch = evt.match(/^([A-Z][a-z]{2}(?:\s?\d{1,2})?(?:–\d{1,2})?(?:–[A-Z][a-z]{2}\s?\d{1,2})?)\s*–\s*/);
+            if (dateMatch) {
+              const date = dateMatch[1];
+              const rest = evt.substring(dateMatch[0].length);
+              return `<li><span class="event-date">${date}</span>${rest}</li>`;
+            }
+            // For pre-2015 style entries without dates
+            return `<li>${evt}</li>`;
+          }).join('')}
+        </ul>`
+      : '<p class="events-empty">Events to be updated soon.</p>';
+
+    return `
+      <div class="accordion__item${isFirst ? ' open' : ''}" data-year="${year}">
+        <button class="accordion__trigger">
+          <span>${data.label}</span>
+          <span class="accordion__icon">▼</span>
+        </button>
+        <div class="accordion__body"${isFirst ? ' style="max-height: 5000px;"' : ''}>
+          <div class="accordion__content">
+            ${noteHTML}
+            ${eventsHTML}
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+}
 
 /* ── Accordion ─────────────────────────────────────────────────────────── */
 
@@ -100,6 +163,8 @@ function initEventsTabs() {
           const body = item.querySelector('.accordion__body');
           if (body) body.style.maxHeight = body.scrollHeight + 'px';
 
+          // Scroll item into view smoothly
+          item.scrollIntoView({ behavior: 'smooth', block: 'start' });
         } else {
           item.classList.remove('open');
           const body = item.querySelector('.accordion__body');

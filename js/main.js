@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initRevealAnimations();
   initHeaderScroll();
   setActiveNavLink();
+  initParallax();
 });
 
 /* ── Navigation ────────────────────────────────────────────────────────── */
@@ -194,3 +195,50 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+/* ── Parallax Scroll for Work Strips ───────────────────────────────────── */
+
+function initParallax() {
+  const strips = document.querySelectorAll('.work-strip');
+  if (!strips.length) return;
+
+  // Skip parallax on mobile / reduced-motion
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion || window.innerWidth < 768) return;
+
+  let ticking = false;
+
+  function updateParallax() {
+    const scrollY = window.scrollY;
+    const viewportH = window.innerHeight;
+
+    strips.forEach(strip => {
+      const rect = strip.getBoundingClientRect();
+      // Only process visible strips
+      if (rect.bottom < 0 || rect.top > viewportH) return;
+
+      const img = strip.querySelector('.work-strip__img');
+      if (!img) return;
+
+      // Calculate how far the strip is through the viewport (-1 to 1)
+      const center = rect.top + rect.height / 2;
+      const offset = (center - viewportH / 2) / viewportH;
+      
+      // Translate the image (parallax factor: 40px range)
+      const translate = offset * 40;
+      img.style.transform = `translateY(${translate}px)`;
+    });
+
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Run once on load
+  updateParallax();
+}

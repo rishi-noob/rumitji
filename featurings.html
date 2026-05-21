@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Featurings — Rumit Walia</title>
+  <meta name="description" content="Media mentions, podcast appearances, TEDx talks, and press features of Rumit Walia's work.">
+  <link rel="icon" href="assets/images/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="featurings">
+  <div id="site-header"></div>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-hero__title">Featurings</h1>
+        <p class="page-hero__subtitle">Press features, podcast appearances, TEDx talks, and media coverage of my work.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════ FILTER TABS ═══════════════ -->
+    <section class="section">
+      <div class="container">
+        <div class="featurings-tabs reveal" id="featurings-tabs">
+          <button class="featurings-tab active" data-tab="all">All</button>
+          <button class="featurings-tab" data-tab="mentions">Mentions</button>
+          <button class="featurings-tab" data-tab="podcast">Podcast</button>
+          <button class="featurings-tab" data-tab="tedx">TEDx</button>
+        </div>
+
+        <!-- Mentions Section -->
+        <div class="featurings-section" data-section="mentions">
+          <h2 class="featurings-section__title reveal">
+            <span class="featurings-section__icon">📰</span> Mentions
+          </h2>
+          <div class="mentions-grid" id="mentions-container">
+            <!-- Dynamically rendered from MENTIONS_DATA -->
+          </div>
+        </div>
+
+        <!-- Podcast Section -->
+        <div class="featurings-section" data-section="podcast">
+          <h2 class="featurings-section__title reveal">
+            <span class="featurings-section__icon">🎙️</span> Podcast
+          </h2>
+          <div class="mentions-grid">
+            <div class="mention-card reveal">
+              <div class="mention-card__preview" style="background: linear-gradient(135deg, #1a1f3a 0%, #e76f51 100%); color: white; font-size: 1.5rem; font-weight: 700; font-family: var(--font-display);">5 Seconds for Earth</div>
+              <div class="mention-card__body">
+                <span class="mention-card__source">Instagram / YouTube</span>
+                <h3 class="mention-card__title">5 Seconds for Earth — Quick Environmental Tips</h3>
+                <p class="mention-card__text">A 5-second show delivering tips to become a true environmentalist. Quick, impactful environmental education.</p>
+                <span class="mention-card__date">Ongoing</span>
+                <a href="https://www.instagram.com/5secondsforearth/" class="mention-card__link" target="_blank" rel="noopener">Watch Now →</a>
+              </div>
+            </div>
+            <div class="mention-card reveal">
+              <div class="mention-card__preview" style="background: linear-gradient(135deg, #2d6a4f 0%, #4db8ab 100%); color: white; font-size: 1.5rem; font-weight: 700; font-family: var(--font-display);">Planet vs. Plastics</div>
+              <div class="mention-card__body">
+                <span class="mention-card__source">YouTube</span>
+                <h3 class="mention-card__title">54-Week Video Podcast: Planet vs. Plastics</h3>
+                <p class="mention-card__text">A year-long video podcast series exploring ways to combat plastic pollution and protect our planet.</p>
+                <span class="mention-card__date">2024</span>
+                <a href="https://www.youtube.com/watch?v=KPNw_dYrd2Q&list=PLwa8R-2MnFeecnrvb6pOe4OA5soEcyKVj" class="mention-card__link" target="_blank" rel="noopener">Watch Series →</a>
+              </div>
+            </div>
+            <div class="mention-card reveal">
+              <div class="mention-card__preview" style="background: linear-gradient(135deg, #457b9d 0%, #1d3557 100%); color: white; font-size: 1.5rem; font-weight: 700; font-family: var(--font-display);">53 Lives in 53 Days</div>
+              <div class="mention-card__body">
+                <span class="mention-card__source">Instagram Live</span>
+                <h3 class="mention-card__title">53 Consecutive Days of Instagram Live Sessions</h3>
+                <p class="mention-card__text">A 53-day consecutive Instagram Live series exploring 53 ways to invest in our planet for Earth Day 2023.</p>
+                <span class="mention-card__date">2023</span>
+                <a href="https://www.earthday.org/get-inspired-53-lives-in-53-days-for-53-ways-to-invest-in-our-planet/" class="mention-card__link" target="_blank" rel="noopener">Read More →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TEDx Section -->
+        <div class="featurings-section" data-section="tedx">
+          <h2 class="featurings-section__title reveal">
+            <span class="featurings-section__icon">🎤</span> TEDx
+          </h2>
+          <div class="mentions-grid">
+            <div class="mention-card reveal">
+              <div class="mention-card__preview" style="background: linear-gradient(135deg, #a4161a 0%, #e76f51 100%); color: white; font-size: 1.5rem; font-weight: 700; font-family: var(--font-display);">TEDx</div>
+              <div class="mention-card__body">
+                <span class="mention-card__source">TEDx Talks</span>
+                <h3 class="mention-card__title">Coming Soon</h3>
+                <p class="mention-card__text">TEDx appearances and talks will be featured here. Stay tuned for upcoming engagements.</p>
+                <span class="mention-card__date">Upcoming</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/components.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/mentions-renderer.js"></script>
+  <script src="js/animations.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Tab filtering
+      const tabs = document.querySelectorAll('.featurings-tab');
+      const sections = document.querySelectorAll('.featurings-section');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          const filter = tab.dataset.tab;
+
+          sections.forEach(section => {
+            if (filter === 'all') {
+              section.style.display = '';
+            } else {
+              section.style.display = section.dataset.section === filter ? '' : 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

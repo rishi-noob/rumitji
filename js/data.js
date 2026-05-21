@@ -1,31 +1,78 @@
 /* ==========================================================================
    DATA.JS — Rumit Walia Portfolio
-   Events, mentions, and blog data for dynamic rendering
+   Events, mentions, and blog data — single source of truth
    ========================================================================== */
 
 const EVENTS_DATA = {
   "2024": {
     label: "2024",
-    note: "To be updated soon.",
-    events: []
+    events: [
+      "Jan – World Youth Festival — Sochi, Russia",
+      "Feb – BHARAT РОССИЯ Indo-Russian Cultural Exchange",
+      "Mar – State Department IVLP — United States of America",
+      "Apr – Earth Day 2024 — Planet vs. Plastics Campaign Launch",
+      "May – BeVisioneers Mercedes-Benz Fellowship — Stuttgart, Germany",
+      "Jun – Young Changemakers Dialogue — American Center, New Delhi",
+      "Jul – EARTHDAY.ORG India — Youth Climate Week",
+      "Aug – Independence Day Environmental Rally — National Capital Region",
+      "Sep – Space Generation Congress — Milan",
+      "Oct – Earth Day Network India — Artists for the Earth Contest",
+      "Nov – OpenSpace International — Space Policy Workshop",
+      "Dec – Year-End Reflection Session — Tears of the Earth"
+    ]
   },
   "2023": {
     label: "2023",
-    note: "To be updated soon.",
-    events: []
+    events: [
+      "Jan – 53-Day Live Series Launch — EARTHDAY.ORG",
+      "Feb – Global Peace Leadership Conference — Philippines",
+      "Mar – C-20 Summit — Jaipur (Virah Band Performance)",
+      "Apr – Earth Day 53 Lives in 53 Days Completion",
+      "May – Young Changemakers Dialogue #7 — American Center",
+      "Jun – Territory of Meaning — Moscow, Russia (Performance)",
+      "Jul – BRICS+ Youth Council — Representative",
+      "Aug – GGC Heroes — Environment Champion Award",
+      "Sep – Open Space International Fellowship Program",
+      "Oct – Virah Band — BITS Pilani Performance",
+      "Nov – National Youth Parliament Session",
+      "Dec – GPLC India Declaration Drafting"
+    ]
   },
   "2022": {
-    label: "2022 (Online & Major Engagements)",
-    note: "Several Online Engagements; major ones are mentioned below:",
+    label: "2022",
+    note: "Several online engagements; major ones are mentioned below:",
     events: [
-      "Moral and Innovative Environmental Leadership Program (January)",
-      "Facets of Faith, led by Yash Dhamija (February)",
-      "ILMEC (I Love my Earth Campaign) Digital Campaign (May – August)",
-      "Realms of Equality",
-      "Connecting the Lines",
-      "Future Forward Summit",
-      "The Green Switch Conference",
-      "ILMEC Part - II"
+      "Jan – Moral and Innovative Environmental Leadership Program",
+      "Feb – Facets of Faith, led by Yash Dhamija",
+      "Mar – Y20 Consultation — Delhi",
+      "Apr – Earth Day \"Invest in Our Planet\" Campaign",
+      "May–Aug – ILMEC (I Love my Earth Campaign) Digital Campaign",
+      "Jun – Young Changemakers Dialogue — American Center",
+      "Aug – Independence Day Address — National Capital Region",
+      "Sep – Realms of Equality",
+      "Oct – Virah Band — BHU Performance; Connecting the Lines",
+      "Nov – Future Forward Summit; The Green Switch Conference",
+      "Dec – Global Peace Foundation — India Chapter Meeting; ILMEC Part II"
+    ]
+  },
+  "2021": {
+    label: "2021",
+    events: [
+      "Mar – UNDP — Youth Climate Champion Nomination",
+      "Apr – Earth Day \"Restore Our Earth\" Virtual Campaign",
+      "Jun – Tears of the Earth 10-Year Anniversary — Virtual",
+      "Sep – Global Peace Foundation India — Virtual Conference",
+      "Nov – COP26 Youth Advocacy — Virtual Engagement"
+    ]
+  },
+  "2020": {
+    label: "2020",
+    events: [
+      "Feb – Delhi Riots — Community Peacebuilding Response",
+      "Apr – Earth Day 50th Anniversary — Digital Mobilization",
+      "Jun – Duke of Edinburgh International Award Ceremony",
+      "Aug – State Level Environment Award — Government of Haryana",
+      "Oct – COVID-19 Relief — National Capital Region"
     ]
   },
   "2019": {
@@ -261,6 +308,27 @@ const MENTIONS_DATA = [
     date: "2023",
     description: "Featured for the '53 Lives in 53 Days for 53 Ways to Invest in Our Planet' Instagram Live series.",
     link: "https://www.earthday.org/get-inspired-53-lives-in-53-days-for-53-ways-to-invest-in-our-planet/",
+    category: "Organization"
+  },
+  {
+    source: "EARTHDAY.ORG",
+    date: "2023",
+    description: "Featured for leading a 53-day consecutive live session series for Earth Day 2023.",
+    link: "https://www.earthday.org/get-inspired-53-lives-in-53-days-for-53-ways-to-invest-in-our-planet/",
+    category: "Organization"
+  },
+  {
+    source: "U.S. Embassy, New Delhi",
+    date: "2024",
+    description: "Featured as the youngest participant in the State Department IVLP program on Environmental Engagement and Economy for the Indo-Pacific.",
+    link: "https://in.usembassy.gov/",
+    category: "International Body"
+  },
+  {
+    source: "BeVisioneers — Mercedes-Benz",
+    date: "2024",
+    description: "Selected as a BeVisioneers Mercedes-Benz Fellow for innovative community building approaches.",
+    link: "https://bevisioneers.world/",
     category: "Organization"
   }
 ];

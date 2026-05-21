@@ -16,33 +16,8 @@
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/pages.css">
 </head>
-<body>
-  <header class="header">
-    <div class="header__inner">
-      <a href="index.html" class="header__logo" aria-label="Rumit Walia Home">
-        <img src="assets/images/logo.png" alt="RW Logo">
-      </a>
-      <nav class="nav">
-        <a href="index.html" class="nav__link">Home</a>
-        <a href="about.html" class="nav__link">About Me</a>
-        <a href="areas-of-work.html" class="nav__link active">Areas of Work</a>
-        <!-- <a href="mentions.html" class="nav__link">Mentions</a> -->
-        <a href="events-tracker.html" class="nav__link">Events Tracker</a>
-        <a href="contact.html" class="nav__link">Contact</a>
-      </nav>
-      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    </div>
-  </header>
-  <div class="nav-backdrop"></div>
-  <nav class="nav-mobile">
-    <a href="index.html" class="nav__link">Home</a>
-    <a href="about.html" class="nav__link">About Me</a>
-    <a href="areas-of-work.html" class="nav__link active">Areas of Work</a>
-    <!-- <a href="mentions.html" class="nav__link">Mentions</a> -->
-    <a href="events-tracker.html" class="nav__link">Events Tracker</a>
-    <a href="contact.html" class="nav__link">Contact</a>
-  </nav>
-
+<body data-page="areas-of-work">
+  <div id="site-header"></div>
   <main>
     <section class="page-hero">
       <div class="container">
@@ -51,7 +26,6 @@
       </div>
     </section>
 
-    <!-- ═══════════ ENVIRONMENT ═══════════ -->
     <section class="work-section work-section--env" id="environment">
       <div class="split">
         <img src="assets/images/pomelli_bdna_image_0415 (16).png" alt="Rumit planting trees in the field" class="work-section__image">
@@ -67,7 +41,6 @@
       </div>
     </section>
 
-    <!-- ═══════════ PEACEBUILDING ═══════════ -->
     <section class="work-section work-section--peace" id="peacebuilding">
       <div class="split split--reverse">
         <img src="assets/images/pomelli_bdna_image_0415 (1).png" alt="Rumit speaking to a large audience" class="work-section__image">
@@ -83,7 +56,6 @@
       </div>
     </section>
 
-    <!-- ═══════════ PERFORMATIVE ARTS ═══════════ -->
     <section class="work-section work-section--arts" id="performance">
       <div class="split">
         <img src="assets/images/pomelli_bdna_image_0415 (3).png" alt="Rumit performing music at Territory of Meaning, Moscow" class="work-section__image">
@@ -99,7 +71,6 @@
       </div>
     </section>
 
-    <!-- ═══════════ SPACE EXPLORATION ═══════════ -->
     <section class="work-section work-section--space" id="space">
       <div class="split split--reverse">
         <img src="assets/images/pomelli_bdna_image_0415 (6).png" alt="Rumit at a space exploration workshop with whiteboard" class="work-section__image">
@@ -115,7 +86,6 @@
       </div>
     </section>
 
-    <!-- ═══════════ PEOPLE & YOUTH ═══════════ -->
     <section class="work-section work-section--people" id="people">
       <div class="split">
         <img src="assets/images/pomelli_bdna_image_0415 (10).png" alt="Rumit moderating an Earth Day event" class="work-section__image">
@@ -132,56 +102,19 @@
       </div>
     </section>
 
-    <!-- CTA -->
     <section class="section" style="text-align: center; background: var(--color-bg-alt);">
       <div class="container">
         <h2 class="section__title reveal">Explore Further</h2>
         <p class="section__subtitle reveal">Check out my event history, media mentions, or read my thoughts on the blog.</p>
         <div class="mt-lg reveal" style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
           <a href="events-tracker.html" class="btn btn-primary">Events Tracker</a>
-          <a href="blogs.html" class="btn btn-secondary">Read Blogs</a>
+          <a href="featurings.html" class="btn btn-secondary">Featurings</a>
         </div>
       </div>
     </section>
   </main>
-
-  <footer class="footer">
-    <div class="footer__inner">
-      <div class="footer__grid">
-        <div>
-          <h3 class="footer__title">Let's connect</h3>
-          <p class="footer__text" style="margin-bottom: var(--spacing-md);">+91-965-494-0577</p>
-          <p class="footer__text">connect@rumitwalia.in</p>
-          <p class="footer__text" style="margin-top: var(--spacing-md);">New Delhi, India</p>
-        </div>
-        <div>
-          <h4 class="footer__heading">Navigate</h4>
-          <a href="index.html" class="footer__link">Home</a>
-          <a href="about.html" class="footer__link">About Me</a>
-          <a href="areas-of-work.html" class="footer__link" style="color: var(--color-coral);">Areas of Work</a>
-          <!-- <a href="mentions.html" class="footer__link">Mentions</a> -->
-          <a href="events-tracker.html" class="footer__link">Events Tracker</a>
-          <a href="contact.html" class="footer__link">Contact</a>
-        </div>
-        <div>
-          <h4 class="footer__heading">Connect</h4>
-          <div class="footer__social" style="flex-direction: column; gap: var(--spacing-xs);">
-            <a href="https://www.instagram.com/rumitwalia" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://www.linkedin.com/in/rumitwalia" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="https://x.com/rumitwalia" target="_blank" rel="noopener">X (Twitter)</a>
-            <a href="https://www.youtube.com/@rumitwalia" target="_blank" rel="noopener">YouTube</a>
-          </div>
-        </div>
-        <div style="display:flex; align-items:center; justify-content:center;">
-          <img src="assets/images/logo.png" alt="RW Logo" class="footer__logo-large">
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <span>&copy; 2024 Rumit Walia. All rights reserved.</span>
-      </div>
-    </div>
-  </footer>
-
+  <div id="site-footer"></div>
+  <script src="js/components.js"></script>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
   <script src="js/animations.js"></script>

@@ -1,0 +1,199 @@
+/* ==========================================================================
+   COMPONENTS.JS — Rumit Walia Portfolio
+   Shared header, footer, and social bar components
+   Single source of truth for site-wide navigation and layout
+   ========================================================================== */
+
+(function () {
+  'use strict';
+
+  /* ── Navigation Config ──────────────────────────────────────────────── */
+
+  const NAV_LINKS = [
+    { label: 'Home',           href: 'index.html',          page: 'home' },
+    { label: 'About Me',       href: 'about.html',          page: 'about' },
+    { label: 'Areas of Work',  href: 'areas-of-work.html',  page: 'areas-of-work' },
+    { label: 'Featurings',     href: 'featurings.html',     page: 'featurings' },
+    { label: 'Events Tracker', href: 'events-tracker.html', page: 'events-tracker' },
+    { label: 'Contact',        href: 'contact.html',        page: 'contact' }
+  ];
+
+  /* ── Associations Config ────────────────────────────────────────────── */
+
+  const ASSOCIATIONS = [
+    'Tears of the Earth',
+    'EARTHDAY.ORG',
+    'Global Peace Foundation',
+    'American Center',
+    'UNESCO',
+    'World Youth Festival',
+    'SGAC',
+    'BeVisioneers',
+    'OpenSpace Intl',
+    'BHARAT РОССИЯ'
+  ];
+
+  const SOCIAL_LINKS = [
+    { label: 'WhatsApp',    href: 'https://wa.me/919654940577',               icon: 'whatsapp' },
+    { label: 'Instagram',   href: 'https://www.instagram.com/rumitwalia',     icon: 'instagram' },
+    { label: 'Facebook',    href: 'https://www.facebook.com/rumitwalia',      icon: 'facebook' },
+    { label: 'LinkedIn',    href: 'https://www.linkedin.com/in/rumitwalia',   icon: 'linkedin' },
+    { label: 'X (Twitter)', href: 'https://x.com/rumitwalia',                 icon: 'x' },
+    { label: 'Telegram',    href: 'https://t.me/rumitwalia',                  icon: 'telegram' },
+    { label: 'VK',          href: 'https://vk.com/rumitwalia',                icon: 'vk' },
+    { label: 'YouTube',     href: 'https://www.youtube.com/@rumitwalia',      icon: 'youtube' }
+  ];
+
+  const SOCIAL_ICONS = {
+    whatsapp: '<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>',
+    instagram: '<svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>',
+    facebook: '<svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>',
+    linkedin: '<svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>',
+    x: '<svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
+    telegram: '<svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>',
+    youtube: '<svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>',
+    vk: '<svg viewBox="0 0 24 24"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.779.678.864 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.15-3.574 2.15-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .779.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg>'
+  };
+
+  /* ── Detect Active Page ─────────────────────────────────────────────── */
+
+  function getActivePage() {
+    const bodyPage = document.body.getAttribute('data-page');
+    if (bodyPage) return bodyPage;
+    const path = window.location.pathname.split('/').pop() || 'index.html';
+    const map = {
+      'index.html': 'home', '': 'home',
+      'about.html': 'about',
+      'areas-of-work.html': 'areas-of-work',
+      'featurings.html': 'featurings',
+      'events-tracker.html': 'events-tracker',
+      'contact.html': 'contact'
+    };
+    return map[path] || 'home';
+  }
+
+  /* ── Render Header ──────────────────────────────────────────────────── */
+
+  function renderHeader() {
+    const activePage = getActivePage();
+    const target = document.getElementById('site-header');
+    if (!target) return;
+
+    const navLinksHTML = NAV_LINKS.map(link =>
+      `<a href="${link.href}" class="nav__link${link.page === activePage ? ' active' : ''}">${link.label}</a>`
+    ).join('\n        ');
+
+    const mobileLinksHTML = NAV_LINKS.map(link =>
+      `<a href="${link.href}" class="nav__link${link.page === activePage ? ' active' : ''}">${link.label}</a>`
+    ).join('\n    ');
+
+    target.outerHTML = `
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo" aria-label="Rumit Walia Home">
+        <img src="assets/images/logo.png" alt="RW Logo">
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        ${navLinksHTML}
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <div class="nav-backdrop" aria-hidden="true"></div>
+  <nav class="nav-mobile" aria-label="Mobile navigation">
+    ${mobileLinksHTML}
+  </nav>`;
+  }
+
+  /* ── Render Social Bar ──────────────────────────────────────────────── */
+
+  function renderSocialBar() {
+    const target = document.getElementById('site-social-bar');
+    if (!target) return;
+    const linksHTML = SOCIAL_LINKS.map(link =>
+      `    <a href="${link.href}" class="social-bar__link" target="_blank" rel="noopener" aria-label="${link.label}">\n      ${SOCIAL_ICONS[link.icon]}\n    </a>`
+    ).join('\n');
+    target.outerHTML = `\n  <aside class="social-bar" aria-label="Social media links">\n${linksHTML}\n  </aside>`;
+  }
+
+  /* ── Render Footer ──────────────────────────────────────────────────── */
+
+  function renderFooter() {
+    const activePage = getActivePage();
+    const target = document.getElementById('site-footer');
+    if (!target) return;
+
+    const footerNavHTML = NAV_LINKS.map(link =>
+      `          <a href="${link.href}" class="footer__link${link.page === activePage ? '" style="color: var(--color-coral);' : ''}">${link.label}</a>`
+    ).join('\n');
+
+    const socialTextLinks = [
+      { label: 'Instagram', href: 'https://www.instagram.com/rumitwalia' },
+      { label: 'LinkedIn',  href: 'https://www.linkedin.com/in/rumitwalia' },
+      { label: 'X (Twitter)', href: 'https://x.com/rumitwalia' },
+      { label: 'YouTube',   href: 'https://www.youtube.com/@rumitwalia' },
+      { label: 'Telegram',  href: 'https://t.me/rumitwalia' }
+    ];
+
+    const socialHTML = socialTextLinks.map(link =>
+      `            <a href="${link.href}" target="_blank" rel="noopener">${link.label}</a>`
+    ).join('\n');
+
+    const assocHTML = ASSOCIATIONS.map(a =>
+      `            <span class="footer__assoc-item">${a}</span>`
+    ).join('\n');
+
+    target.outerHTML = `
+  <footer class="footer" id="footer">
+    <div class="footer__inner">
+      <div class="footer__grid footer__grid--5col">
+        <div>
+          <h3 class="footer__title">Let's connect</h3>
+          <p class="footer__text" style="margin-bottom: var(--spacing-sm);"><a href="tel:+919654940577" style="color: inherit; text-decoration: none;">+91-965-494-0577</a></p>
+          <p class="footer__text"><a href="mailto:connect@rumitwalia.in" style="color: inherit; text-decoration: none;">connect@rumitwalia.in</a></p>
+          <p class="footer__text" style="margin-top: var(--spacing-sm);">New Delhi, India</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Navigate</h4>
+${footerNavHTML}
+        </div>
+        <div>
+          <h4 class="footer__heading">Connect</h4>
+          <div class="footer__social" style="flex-direction: column; gap: var(--spacing-xs);">
+${socialHTML}
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Associations</h4>
+          <div class="footer__associations">
+${assocHTML}
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:center;">
+          <img src="assets/images/logo.png" alt="RW Logo" class="footer__logo-large">
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2025 Rumit Walia. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>`;
+  }
+
+  /* ── Initialize ─────────────────────────────────────────────────────── */
+
+  function initComponents() {
+    renderHeader();
+    renderSocialBar();
+    renderFooter();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initComponents);
+  } else {
+    initComponents();
+  }
+
+})();
