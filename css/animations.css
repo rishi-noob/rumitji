@@ -18,55 +18,55 @@
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translate3d(0, 30px, 0);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes fadeInDown {
   from {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translate3d(0, -20px, 0);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes fadeInLeft {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translate3d(-30px, 0, 0);
   }
 
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes fadeInRight {
   from {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translate3d(30px, 0, 0);
   }
 
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes scaleUp {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.92);
   }
 
   to {
@@ -77,21 +77,21 @@
 
 @keyframes slideInRight {
   from {
-    transform: translateX(100%);
+    transform: translate3d(100%, 0, 0);
   }
 
   to {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes slideOutRight {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 
   to {
-    transform: translateX(100%);
+    transform: translate3d(100%, 0, 0);
   }
 }
 
@@ -121,11 +121,11 @@
 
   0%,
   100% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 
   50% {
-    transform: translateY(-8px);
+    transform: translate3d(0, -8px, 0);
   }
 }
 
@@ -151,56 +151,44 @@
   }
 }
 
-@keyframes countUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @keyframes marquee {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 /* ── Animation Utility Classes ─────────────────────────────────────────── */
 
 .fade-in {
-  animation: fadeIn var(--duration-slow) var(--ease-out) forwards;
+  animation: fadeIn var(--duration-slow, 0.6s) var(--ease-out, ease-out) forwards;
 }
 
 .fade-in-up {
   opacity: 0;
-  animation: fadeInUp var(--duration-slower) var(--ease-out) forwards;
+  animation: fadeInUp var(--duration-slower, 0.8s) var(--ease-out, ease-out) forwards;
 }
 
 .fade-in-left {
   opacity: 0;
-  animation: fadeInLeft var(--duration-slower) var(--ease-out) forwards;
+  animation: fadeInLeft var(--duration-slower, 0.8s) var(--ease-out, ease-out) forwards;
 }
 
 .fade-in-right {
   opacity: 0;
-  animation: fadeInRight var(--duration-slower) var(--ease-out) forwards;
+  animation: fadeInRight var(--duration-slower, 0.8s) var(--ease-out, ease-out) forwards;
 }
 
 .scale-up {
   opacity: 0;
-  animation: scaleUp var(--duration-slow) var(--ease-bounce) forwards;
+  animation: scaleUp var(--duration-slow, 0.6s) var(--ease-bounce, cubic-bezier(0.175, 0.885, 0.32, 1.275)) forwards;
 }
 
 .float {
-  animation: float 3s var(--ease-in-out) infinite;
+  animation: float 3.5s var(--ease-in-out, ease-in-out) infinite;
 }
 
 /* ── Stagger Delays ────────────────────────────────────────────────────── */
@@ -237,51 +225,63 @@
   animation-delay: 0.8s;
 }
 
-/* ── Scroll Reveal ─────────────────────────────────────────────────────── */
+.stagger-9 {
+  animation-delay: 0.9s;
+}
+
+.stagger-10 {
+  animation-delay: 1.0s;
+}
+
+/* ── Scroll Reveal (Handles both .active and .revealed classes) ────────── */
 
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity var(--duration-slower) var(--ease-out),
-    transform var(--duration-slower) var(--ease-out);
+  transform: translate3d(0, 30px, 0);
+  transition: opacity 0.6s var(--ease-out, ease-out), transform 0.6s var(--ease-out, ease-out);
+  will-change: opacity, transform;
 }
 
+.reveal.active,
 .reveal.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
 }
 
 .reveal-left {
   opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity var(--duration-slower) var(--ease-out),
-    transform var(--duration-slower) var(--ease-out);
+  transform: translate3d(-40px, 0, 0);
+  transition: opacity 0.6s var(--ease-out, ease-out), transform 0.6s var(--ease-out, ease-out);
+  will-change: opacity, transform;
 }
 
+.reveal-left.active,
 .reveal-left.revealed {
   opacity: 1;
-  transform: translateX(0);
+  transform: translate3d(0, 0, 0);
 }
 
 .reveal-right {
   opacity: 0;
-  transform: translateX(40px);
-  transition: opacity var(--duration-slower) var(--ease-out),
-    transform var(--duration-slower) var(--ease-out);
+  transform: translate3d(40px, 0, 0);
+  transition: opacity 0.6s var(--ease-out, ease-out), transform 0.6s var(--ease-out, ease-out);
+  will-change: opacity, transform;
 }
 
+.reveal-right.active,
 .reveal-right.revealed {
   opacity: 1;
-  transform: translateX(0);
+  transform: translate3d(0, 0, 0);
 }
 
 .reveal-scale {
   opacity: 0;
   transform: scale(0.9);
-  transition: opacity var(--duration-slower) var(--ease-out),
-    transform var(--duration-slower) var(--ease-bounce);
+  transition: opacity 0.6s var(--ease-out, ease-out), transform 0.6s var(--ease-bounce, ease-out);
+  will-change: opacity, transform;
 }
 
+.reveal-scale.active,
 .reveal-scale.revealed {
   opacity: 1;
   transform: scale(1);
@@ -290,17 +290,17 @@
 /* ── Loading / Skeleton ────────────────────────────────────────────────── */
 
 .skeleton {
-  background: linear-gradient(90deg, var(--color-gray-lightest) 25%, var(--color-offwhite-dark) 50%, var(--color-gray-lightest) 75%);
+  background: linear-gradient(90deg, var(--color-gray-lightest, #f0f0f0) 25%, var(--color-offwhite-dark, #e8e8e8) 50%, var(--color-gray-lightest, #f0f0f0) 75%);
   background-size: 200px 100%;
   animation: shimmer 1.5s ease-in-out infinite;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-md, 8px);
 }
 
 .spinner {
   width: 24px;
   height: 24px;
-  border: 3px solid var(--color-gray-lighter);
-  border-top-color: var(--color-plum);
+  border: 3px solid var(--color-gray-lighter, #e0e0e0);
+  border-top-color: var(--color-plum, #7d4e7f);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -308,17 +308,17 @@
 /* ── Hover Transitions ─────────────────────────────────────────────────── */
 
 .hover-lift {
-  transition: transform var(--duration-base) var(--ease-out),
-    box-shadow var(--duration-base) var(--ease-out);
+  transition: transform var(--duration-base, 0.3s) var(--ease-out, ease-out),
+    box-shadow var(--duration-base, 0.3s) var(--ease-out, ease-out);
 }
 
 .hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translate3d(0, -4px, 0);
+  box-shadow: var(--shadow-lg, 0 10px 25px rgba(0, 0, 0, 0.1));
 }
 
 .hover-scale {
-  transition: transform var(--duration-base) var(--ease-out);
+  transition: transform var(--duration-base, 0.3s) var(--ease-out, ease-out);
 }
 
 .hover-scale:hover {
@@ -326,14 +326,14 @@
 }
 
 .hover-glow {
-  transition: box-shadow var(--duration-base) var(--ease-out);
+  transition: box-shadow var(--duration-base, 0.3s) var(--ease-out, ease-out);
 }
 
 .hover-glow:hover {
-  box-shadow: var(--shadow-glow);
+  box-shadow: var(--shadow-glow, 0 0 15px rgba(125, 78, 127, 0.3));
 }
 
-/* ── Marquee (logo carousel) ───────────────────────────────────────────── */
+/* ── Marquee (Logo Carousel) ───────────────────────────────────────────── */
 
 .marquee {
   overflow: hidden;
@@ -343,8 +343,31 @@
 .marquee__track {
   display: inline-flex;
   animation: marquee 30s linear infinite;
+  will-change: transform;
 }
 
 .marquee:hover .marquee__track {
   animation-play-state: paused;
+}
+
+/* ── Accessibility Preference Override ────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .fade-in,
+  .fade-in-up,
+  .fade-in-left,
+  .fade-in-right,
+  .scale-up,
+  .float,
+  .marquee__track {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }

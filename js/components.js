@@ -11,26 +11,10 @@
 
   const NAV_LINKS = [
     { label: 'Home', href: 'index.html', page: 'home' },
-    { label: 'About Me', href: 'about.html', page: 'about' },
-    { label: 'Areas of Work', href: 'areas-of-work.html', page: 'areas-of-work' },
-    { label: 'Featurings', href: 'featurings.html', page: 'featurings' },
-    { label: 'Events Tracker', href: 'events-tracker.html', page: 'events-tracker' },
-    { label: 'Contact', href: 'contact.html', page: 'contact' }
-  ];
-
-  /* ── Associations Config ────────────────────────────────────────────── */
-
-  const ASSOCIATIONS = [
-    'Tears of the Earth',
-    'EARTHDAY.ORG',
-    'Global Peace Foundation',
-    'American Center',
-    'UNESCO',
-    'World Youth Festival',
-    'SGAC',
-    'BeVisioneers',
-    'OpenSpace Intl',
-    'BHARAT РОССИЯ'
+    { label: 'About Me', href: 'pages/about.html', page: 'about' },
+    { label: 'Areas of Work', href: 'pages/areas-of-work.html', page: 'areas-of-work' },
+    { label: 'Projects', href: 'pages/projects.html', page: 'projects' },
+    { label: 'Featurings', href: 'pages/featurings.html', page: 'featurings' }
   ];
 
   const SOCIAL_LINKS = [
@@ -62,14 +46,20 @@
     if (bodyPage) return bodyPage;
     const path = window.location.pathname.split('/').pop() || 'index.html';
     const map = {
-      'index.html': 'home', '': 'home',
+      'index.html': 'home',
+      '': 'home',
       'about.html': 'about',
       'areas-of-work.html': 'areas-of-work',
-      'featurings.html': 'featurings',
-      'events-tracker.html': 'events-tracker',
-      'contact.html': 'contact'
+      'projects.html': 'projects',
+      'featurings.html': 'featurings'
     };
     return map[path] || 'home';
+  }
+
+  /* ── Get Correct Path Prefix ─────────────────────────────────────────── */
+
+  function getPathPrefix() {
+    return window.location.pathname.includes('/pages/') ? '../' : './';
   }
 
   /* ── Render Header ──────────────────────────────────────────────────── */
@@ -79,19 +69,23 @@
     const target = document.getElementById('site-header');
     if (!target) return;
 
-    const navLinksHTML = NAV_LINKS.map(link =>
-      `<a href="${link.href}" class="nav__link${link.page === activePage ? ' active' : ''}">${link.label}</a>`
-    ).join('\n        ');
+    const prefix = getPathPrefix();
 
-    const mobileLinksHTML = NAV_LINKS.map(link =>
-      `<a href="${link.href}" class="nav__link${link.page === activePage ? ' active' : ''}">${link.label}</a>`
-    ).join('\n    ');
+    const navLinksHTML = NAV_LINKS.map(link => {
+      const href = link.page === 'home' ? `${prefix}index.html` : `${prefix}${link.href.replace('./', '')}`;
+      return `<a href="${href}" class="nav__link${link.page === activePage ? ' active' : ''}">${link.label}</a>`;
+    }).join('\n        ');
+
+    const mobileLinksHTML = NAV_LINKS.map(link => {
+      const href = link.page === 'home' ? `${prefix}index.html` : `${prefix}${link.href.replace('./', '')}`;
+      return `<a href="${href}" class="nav__link${link.page === activePage ? ' active' : ''}">${link.label}</a>`;
+    }).join('\n    ');
 
     target.outerHTML = `
   <header class="header" id="header">
     <div class="header__inner">
-      <a href="index.html" class="header__logo" aria-label="Rumit Walia Home">
-        <img src="assets/images/logo.png" alt="RW Logo">
+      <a href="${prefix}index.html" class="header__logo" aria-label="Rumit Walia Home">
+        <img src="${prefix}assets/images/logo.png" alt="RW Logo">
       </a>
       <nav class="nav" aria-label="Main navigation">
         ${navLinksHTML}
@@ -125,9 +119,12 @@
     const target = document.getElementById('site-footer');
     if (!target) return;
 
-    const footerNavHTML = NAV_LINKS.map(link =>
-      `          <a href="${link.href}" class="footer__link${link.page === activePage ? '" style="color: var(--color-coral);' : ''}">${link.label}</a>`
-    ).join('\n');
+    const prefix = getPathPrefix();
+
+    const footerNavHTML = NAV_LINKS.map(link => {
+      const href = link.page === 'home' ? `${prefix}index.html` : `${prefix}${link.href.replace('./', '')}`;
+      return `          <a href="${href}" class="footer__link${link.page === activePage ? '" style="color: var(--color-coral);' : ''}">${link.label}</a>`;
+    }).join('\n');
 
     const socialTextLinks = [
       { label: 'Instagram', href: 'https://www.instagram.com/rumitwalia' },
@@ -141,14 +138,10 @@
       `            <a href="${link.href}" target="_blank" rel="noopener">${link.label}</a>`
     ).join('\n');
 
-    const assocHTML = ASSOCIATIONS.map(a =>
-      `            <span class="footer__assoc-item">${a}</span>`
-    ).join('\n');
-
     target.outerHTML = `
   <footer class="footer" id="footer">
     <div class="footer__inner">
-      <div class="footer__grid footer__grid--5col">
+      <div class="footer__grid">
         <div>
           <h3 class="footer__title">Let's connect</h3>
           <p class="footer__text" style="margin-bottom: var(--spacing-sm);"><a href="tel:+919654940577" style="color: inherit; text-decoration: none;">+91-965-494-0577</a></p>
@@ -165,18 +158,12 @@ ${footerNavHTML}
 ${socialHTML}
           </div>
         </div>
-        <div>
-          <h4 class="footer__heading">Associations</h4>
-          <div class="footer__associations">
-${assocHTML}
-          </div>
-        </div>
         <div style="display:flex; align-items:center; justify-content:center;">
-          <img src="assets/images/logo.png" alt="RW Logo" class="footer__logo-large">
+          <img src="${prefix}assets/images/logo.png" alt="RW Logo" class="footer__logo-large">
         </div>
       </div>
       <div class="footer__bottom">
-        <span>&copy; 2025 Rumit Walia. All rights reserved.</span>
+        <span>&copy; 2026 Rumit Walia. All rights reserved.</span>
       </div>
     </div>
   </footer>`;

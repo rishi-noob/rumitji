@@ -13,8 +13,9 @@
   --color-navy: #1a1f3a;
   --color-navy-light: #2a3055;
   --color-navy-dark: #0f1225;
-  --color-offwhite: #f8f7f4;
-  --color-offwhite-dark: #f0efe9;
+  --color-offwhite: #ffffff;
+  /* Clean white primary canvas */
+  --color-offwhite-dark: #f8f7f4;
   --color-white: #ffffff;
 
   /* Accent colors */
@@ -31,21 +32,21 @@
   /* Neutral palette */
   --color-gray: #6b6b66;
   --color-gray-light: #9e9e98;
-  --color-gray-lighter: #d4d4cf;
-  --color-gray-lightest: #ededea;
+  --color-gray-lighter: #e5e5e0;
+  --color-gray-lightest: #f4f4f0;
   --color-gray-dark: #4a4a46;
 
   /* Work-area colors */
   --color-environment: #2d6a4f;
-  --color-environment-bg: #e8f5ee;
+  --color-environment-bg: rgba(45, 106, 79, 0.1);
   --color-peace: #457b9d;
-  --color-peace-bg: #e4eef5;
+  --color-peace-bg: rgba(69, 123, 157, 0.1);
   --color-arts: #a4161a;
-  --color-arts-bg: #f5e4e5;
+  --color-arts-bg: rgba(164, 22, 26, 0.1);
   --color-space: #f4a261;
-  --color-space-bg: #fdf1e2;
+  --color-space-bg: rgba(244, 162, 97, 0.1);
   --color-people: #1d3557;
-  --color-people-bg: #e1e7ee;
+  --color-people-bg: rgba(29, 53, 87, 0.1);
 
   /* Semantic colors */
   --color-success: #2d6a4f;
@@ -54,15 +55,15 @@
   --color-info: #457b9d;
 
   /* Surfaces */
-  --color-bg: var(--color-offwhite);
+  --color-bg: #ffffff;
   --color-bg-alt: var(--color-offwhite-dark);
-  --color-bg-card: var(--color-white);
+  --color-bg-card: #ffffff;
   --color-bg-overlay: rgba(26, 31, 58, 0.6);
   --color-text: var(--color-navy);
   --color-text-secondary: var(--color-gray);
   --color-text-tertiary: var(--color-gray-light);
   --color-border: var(--color-gray-lighter);
-  --color-border-light: var(--color-gray-lightest);
+  --color-border-light: #eeeeeb;
 
   /* ── Typography ──────────────────────────────────────────────────────── */
 
@@ -72,22 +73,17 @@
   --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
 
   /* Font sizes — 8-step type scale */
-  --fs-display-xl: 3rem;
-  /* 48px — page titles */
-  --fs-display: 2.25rem;
-  /* 36px — hero headings */
-  --fs-h1: 1.75rem;
-  /* 28px — major sections */
-  --fs-h2: 1.5rem;
-  /* 24px — sub-sections */
-  --fs-h3: 1.25rem;
-  /* 20px — card titles */
+  --fs-display-xl: clamp(2.5rem, 6vw, 4.5rem);
+  --fs-display: clamp(2rem, 5vw, 3.5rem);
+  --fs-h1: clamp(1.75rem, 4vw, 2.5rem);
+  --fs-h2: clamp(1.35rem, 3vw, 1.85rem);
+  --fs-h3: clamp(1.15rem, 2vw, 1.35rem);
   --fs-body: 1rem;
-  /* 16px — default */
+  /* 16px */
   --fs-small: 0.875rem;
-  /* 14px — captions */
+  /* 14px */
   --fs-label: 0.75rem;
-  /* 12px — metadata */
+  /* 12px */
 
   /* Font weights */
   --fw-light: 300;
@@ -97,19 +93,19 @@
   --fw-bold: 700;
 
   /* Line heights */
-  --lh-tight: 1.2;
+  --lh-tight: 1.15;
   --lh-snug: 1.35;
   --lh-normal: 1.6;
-  --lh-relaxed: 1.75;
+  --lh-relaxed: 1.72;
 
   /* Letter spacing */
   --ls-tight: -0.02em;
   --ls-normal: 0;
   --ls-wide: 0.02em;
   --ls-wider: 0.05em;
-  --ls-widest: 0.1em;
+  --ls-widest: 0.12em;
 
-  /* ── Spacing System (8px base) ───────────────────────────────────────── */
+  /* ── Spacing System ───────────────────────────────────────────────────── */
 
   --spacing-xs: 0.25rem;
   /* 4px */
@@ -139,13 +135,13 @@
 
   /* ── Shadows ─────────────────────────────────────────────────────────── */
 
-  --shadow-xs: 0 1px 2px rgba(26, 31, 58, 0.04);
-  --shadow-sm: 0 2px 4px rgba(26, 31, 58, 0.06);
-  --shadow-md: 0 4px 12px rgba(26, 31, 58, 0.08);
-  --shadow-lg: 0 8px 24px rgba(26, 31, 58, 0.10);
-  --shadow-xl: 0 16px 48px rgba(26, 31, 58, 0.12);
-  --shadow-inner: inset 0 2px 4px rgba(26, 31, 58, 0.06);
-  --shadow-glow: 0 0 20px rgba(125, 78, 127, 0.15);
+  --shadow-xs: 0 1px 3px rgba(26, 31, 58, 0.04);
+  --shadow-sm: 0 2px 8px rgba(26, 31, 58, 0.06);
+  --shadow-md: 0 6px 16px rgba(26, 31, 58, 0.08);
+  --shadow-lg: 0 12px 32px rgba(26, 31, 58, 0.10);
+  --shadow-xl: 0 20px 50px rgba(26, 31, 58, 0.14);
+  --shadow-inner: inset 0 2px 4px rgba(26, 31, 58, 0.05);
+  --shadow-glow: 0 0 20px rgba(125, 78, 127, 0.2);
 
   /* ── Animation ───────────────────────────────────────────────────────── */
 
@@ -156,7 +152,7 @@
   --duration-slowest: 800ms;
 
   --ease-in: cubic-bezier(0.4, 0, 1, 1);
-  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
   --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);

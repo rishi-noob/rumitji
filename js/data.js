@@ -368,3 +368,7 @@ window.EVENTS_DATA = EVENTS_DATA;
 window.MENTIONS_DATA = MENTIONS_DATA;
 window.BLOGS_DATA = BLOGS_DATA;
 window.ASSOCIATIONS = ASSOCIATIONS;
+
+if (typeof window !== 'undefined') {
+  window.MENTIONS_DATA = MENTIONS_DATA;
+}

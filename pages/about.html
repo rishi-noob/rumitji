@@ -11,31 +11,38 @@
   <meta property="og:description"
     content="Civil Engineer, Creative Environmentalist, and Peacebuilder dedicated to sustainable change.">
   <meta property="og:image" content="https://www.rumitwalia.in/assets/images/pomelli_bdna_image_0415 (17).png">
-  <link rel="icon" href="assets/images/logo.png" type="image/png">
-  <link rel="apple-touch-icon" href="assets/images/logo.png">
+
+  <link rel="icon" href="../assets/images/logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/images/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/typography.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/pages.css">
+
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/pages.css">
 </head>
 
 <body data-page="about">
+
   <div id="site-header"></div>
-  <main>
-    <section>
+  <div id="site-social-bar"></div>
+
+  <main id="main-content">
+    <!-- ═══════════════ ABOUT HERO SPLIT ═══════════════ -->
+    <section class="about-hero-section">
       <div class="about-page-split">
         <div class="about-page-split__image-wrapper">
-          <img src="assets/images/pomelli_bdna_image_0415 (17).png" alt="Rumit Walia at a conference"
-            class="about-page-split__image">
+          <img src="../assets/images/pomelli_bdna_image_0415 (6).png"
+            alt="Rumit Walia speaking at an international conference" class="about-page-split__image">
         </div>
         <div class="about-page-split__content">
+          <p class="overline reveal">Biography</p>
           <h1 class="reveal">About Me</h1>
-          <div class="reveal">
+          <div class="reveal prose">
             <p>I am Rumit Walia, a creative environmentalist and peacebuilder. I founded the non-profit organization
               Tears of the Earth in 2010, which is committed to inspiring youth and envisioning a world where unity and
               sustainability prevail.</p>
@@ -52,7 +59,9 @@
         </div>
       </div>
     </section>
-    <section class="section">
+
+    <!-- ═══════════════ EXTENDED BIO PROSE ═══════════════ -->
+    <section class="section section--alt" id="extended-bio">
       <div class="container container--narrow">
         <div class="prose reveal">
           <p>My work has also extended to several other Embassies and cultural centres in India. I was the youngest
@@ -70,10 +79,13 @@
         </div>
       </div>
     </section>
-    <section class="section about-awards">
+
+    <!-- ═══════════════ AWARDS & RECOGNITIONS ═══════════════ -->
+    <section class="section about-awards" id="awards">
       <div class="container">
         <div class="section__header">
-          <h2 class="section__title reveal" style="margin-bottom: var(--spacing-2xl);">Awards & Recognitions</h2>
+          <p class="overline reveal">Honors</p>
+          <h2 class="section__title reveal">Awards & Recognitions</h2>
         </div>
         <div class="awards-horizontal reveal">
           <div class="award-pointer"><span class="award-pointer__year">2024</span><span
@@ -113,33 +125,50 @@
         </div>
       </div>
     </section>
-    <section class="section" style="background: var(--color-bg-alt);">
+
+    <!-- ═══════════════ GALLERY IN ACTION ═══════════════ -->
+    <section class="section section--alt" id="gallery">
       <div class="container">
         <div class="section__header">
+          <p class="overline reveal">Moments</p>
           <h2 class="section__title reveal">In Action</h2>
         </div>
         <div class="about-gallery__grid reveal">
-          <div class="about-gallery__item"><img src="assets/images/pomelli_bdna_image_0415 (3).png"
-              alt="Rumit performing at Territory of Meaning, Moscow"></div>
-          <div class="about-gallery__item"><img src="assets/images/pomelli_bdna_image_0415 (6).png"
-              alt="Rumit teaching at a whiteboard — space exploration workshop"></div>
-          <div class="about-gallery__item"><img src="assets/images/pomelli_bdna_image_0415 (10).png"
-              alt="Rumit at Earth Day event"></div>
-          <div class="about-gallery__item"><img src="assets/images/pomelli_bdna_image_0415 (18).png"
-              alt="Rumit holding Indian flag at US Capitol"></div>
-          <div class="about-gallery__item"><img src="assets/images/pomelli_bdna_image_0415 (16).png"
-              alt="Rumit in the field — environmental work"></div>
-          <div class="about-gallery__item"><img src="assets/images/pomelli_bdna_image_0415 (15).png"
-              alt="Space exploration dialogue at American Center"></div>
+          <div class="about-gallery__item">
+            <img src="../assets/images/pomelli_bdna_image_0415 (3).png"
+              alt="Rumit performing live at Territory of Meaning, Moscow" loading="lazy">
+          </div>
+          <div class="about-gallery__item">
+            <img src="../assets/images/pomelli_bdna_image_0415 (6).png"
+              alt="Rumit teaching at a whiteboard during a space exploration workshop" loading="lazy">
+          </div>
+          <div class="about-gallery__item">
+            <img src="../assets/images/pomelli_bdna_image_0415 (10).png"
+              alt="Rumit addressing participants at an Earth Day initiative" loading="lazy">
+          </div>
+          <div class="about-gallery__item">
+            <img src="../assets/images/pomelli_bdna_image_0415 (18).png"
+              alt="Rumit holding the Indian national flag outside the US Capitol" loading="lazy">
+          </div>
+          <div class="about-gallery__item">
+            <img src="../assets/images/pomelli_bdna_image_0415 (16).png"
+              alt="Rumit working directly on field environmental projects" loading="lazy">
+          </div>
+          <div class="about-gallery__item">
+            <img src="../assets/images/pomelli_bdna_image_0415 (15).png"
+              alt="Space exploration dialogue session conducted at the American Center" loading="lazy">
+          </div>
         </div>
       </div>
     </section>
   </main>
+
   <div id="site-footer"></div>
-  <script src="js/components.js"></script>
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/animations.js"></script>
+
+  <script src="../js/components.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/animations.js"></script>
 </body>
 
 </html>

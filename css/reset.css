@@ -1,7 +1,9 @@
 /* ==========================================================================
    CSS RESET — Rumit Walia Portfolio
-   Modern reset with sensible defaults
+   Modern reset with sensible defaults, typography balancing, and mobile fixes
    ========================================================================== */
+
+/* ── 1. Box Sizing & Margin/Padding Reset ──────────────────────────────── */
 
 *,
 *::before,
@@ -11,48 +13,60 @@
   padding: 0;
 }
 
+/* ── 2. Document & Root Configuration ──────────────────────────────────── */
+
 html {
+  /* Fluid Viewport & Smooth Scrolling */
   scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height, 72px);
+
+  /* Text Adjustments & Rendering */
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  scroll-padding-top: var(--header-height, 72px);
+
+  /* Prevent horizontal layout shifts and unwanted horizontal scrolling */
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 body {
   min-height: 100vh;
-  font-family: var(--font-body);
-  font-size: var(--fs-body);
-  line-height: var(--lh-normal);
-  color: var(--color-text);
-  background-color: var(--color-bg);
+  min-height: 100dvh;
+  /* Dynamic Viewport Height for mobile browsers */
+  font-family: var(--font-body, system-ui, -apple-system, sans-serif);
+  font-size: var(--fs-body, 1rem);
+  line-height: var(--lh-normal, 1.5);
+  color: var(--color-text, #1a1a1a);
+  background-color: var(--color-bg, #ffffff);
+
+  /* Text Rendering Anti-Aliasing */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
+/* ── 3. Typography & Headings ──────────────────────────────────────────── */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+  /* Modern fluid typography balancing */
 }
 
-input,
-button,
-textarea,
-select {
-  font: inherit;
-  color: inherit;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  background: none;
+p,
+li,
+figcaption {
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+  /* Prevents single orphan words at paragraph ends */
 }
 
 a {
@@ -65,19 +79,59 @@ ol {
   list-style: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: inherit;
-  font-weight: inherit;
-  overflow-wrap: break-word;
+/* ── 4. Media & Embedded Elements ──────────────────────────────────────── */
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-p {
-  overflow-wrap: break-word;
+img {
+  font-style: italic;
+  /* Style alt text gracefully when image fails */
+  shape-margin: 1rem;
+}
+
+svg {
+  fill: currentColor;
+}
+
+/* ── 5. Form Elements & Controls ───────────────────────────────────────── */
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  cursor: pointer;
+  border: none;
+  background: none;
+  touch-action: manipulation;
+  /* Removes 300ms tap delay on mobile */
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+textarea {
+  resize: vertical;
+  resize: block;
+}
+
+textarea:not([rows]) {
+  min-height: 10em;
 }
 
 table {
@@ -89,20 +143,39 @@ fieldset {
   border: none;
 }
 
-/* Remove default focus styles — replaced by custom ones */
+dialog {
+  border: none;
+  background: transparent;
+}
+
+summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* ── 6. Focus & Accessibility ──────────────────────────────────────────── */
+
+/* Remove default browser focus outline */
 :focus {
   outline: none;
 }
 
-/* Accessible focus styles */
+/* Accessible keyboard focus states */
 :focus-visible {
-  outline: 2px solid var(--color-plum);
+  outline: 2px solid var(--color-plum, #7d4e7f);
   outline-offset: 2px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-sm, 4px);
 }
 
-/* Reduce motion for users who prefer it */
+/* Disable transitions/animations for users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
 
   *,
   *::before,
@@ -114,13 +187,14 @@ fieldset {
   }
 }
 
-/* Selection styling */
+/* ── 7. Selection Colors ───────────────────────────────────────────────── */
+
 ::selection {
-  background-color: var(--color-plum);
-  color: var(--color-white);
+  background-color: var(--color-plum, #7d4e7f);
+  color: var(--color-white, #ffffff);
 }
 
 ::-moz-selection {
-  background-color: var(--color-plum);
-  color: var(--color-white);
+  background-color: var(--color-plum, #7d4e7f);
+  color: var(--color-white, #ffffff);
 }

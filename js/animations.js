@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAccordion();
   initParallax();
   initEventsTabs();
+  initScrollReveal();
 });
 
 /* ── Dynamic Events Rendering ─────────────────────────────────────────── */
@@ -197,6 +198,28 @@ function initLazyImages() {
   });
 
   images.forEach(img => imageObserver.observe(img));
+}
+
+/* ── Scroll Reveal Observer ────────────────────────────────────────────── */
+
+function initScrollReveal() {
+  const revealElements = document.querySelectorAll('.reveal');
+  if (!revealElements.length) return;
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        // Optionally unobserve so it stays visible after reveal
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    rootMargin: '0px 0px -50px 0px',
+    threshold: 0.1
+  });
+
+  revealElements.forEach(el => revealObserver.observe(el));
 }
 
 // Initialize lazy images

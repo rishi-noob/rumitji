@@ -193,12 +193,24 @@
   font-weight: var(--fw-medium);
 }
 
-/* Work area card */
+/* Work Area Card Improvements */
 .card--work {
   position: relative;
   padding: var(--spacing-xl);
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-xs);
   overflow: hidden;
   cursor: pointer;
+  transition: transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
+}
+
+.card--work:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
 }
 
 .card--work::before {
@@ -218,6 +230,11 @@
 .card--work .card__icon {
   font-size: 2rem;
   margin-bottom: var(--spacing-md);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.card--work:hover .card__icon {
+  transform: scale(1.1);
 }
 
 .card--work.env::before {
@@ -260,6 +277,26 @@
   color: var(--color-people);
 }
 
+.card--work.env:hover {
+  border-color: var(--color-environment);
+}
+
+.card--work.peace:hover {
+  border-color: var(--color-peace);
+}
+
+.card--work.arts:hover {
+  border-color: var(--color-arts);
+}
+
+.card--work.space:hover {
+  border-color: var(--color-space);
+}
+
+.card--work.people:hover {
+  border-color: var(--color-people);
+}
+
 /* ══════════════════════════════════════════════════════════════════════════
    3. BADGES & TAGS
    ══════════════════════════════════════════════════════════════════════════ */
@@ -292,28 +329,28 @@
 }
 
 .badge--env {
-  background-color: var(--color-environment-bg);
-  color: var(--color-environment);
+  background-color: var(--color-environment-bg, rgba(45, 106, 79, 0.12));
+  color: var(--color-environment, #2d6a4f);
 }
 
 .badge--peace {
-  background-color: var(--color-peace-bg);
-  color: var(--color-peace);
+  background-color: var(--color-peace-bg, rgba(69, 123, 157, 0.12));
+  color: var(--color-peace, #457b9d);
 }
 
 .badge--arts {
-  background-color: var(--color-arts-bg);
-  color: var(--color-arts);
+  background-color: var(--color-arts-bg, rgba(231, 111, 81, 0.12));
+  color: var(--color-arts, #e76f51);
 }
 
 .badge--space {
-  background-color: var(--color-space-bg);
-  color: var(--color-space);
+  background-color: var(--color-space-bg, rgba(244, 162, 97, 0.12));
+  color: var(--color-space, #f4a261);
 }
 
 .badge--people {
-  background-color: var(--color-people-bg);
-  color: var(--color-people);
+  background-color: var(--color-people-bg, rgba(29, 53, 87, 0.12));
+  color: var(--color-people, #1d3557);
 }
 
 .tag {
@@ -823,7 +860,7 @@
 
 .social-bar {
   position: fixed;
-  left: 0;
+  left: 10px;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -868,7 +905,127 @@
    10. FOOTER
    ══════════════════════════════════════════════════════════════════════════ */
 
-/* Footer styles are now in pages.css for the dark footer theme */
+.footer {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+.footer__inner {
+  max-width: var(--container-wide);
+  margin: 0 auto;
+  padding: var(--spacing-2xl) var(--spacing-lg) var(--spacing-lg);
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.footer__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  color: #ffffff;
+  margin-bottom: var(--spacing-md);
+}
+
+.footer__heading {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wider);
+  color: #999999;
+  margin-bottom: var(--spacing-md);
+}
+
+.footer__link {
+  display: block;
+  color: #cccccc;
+  font-size: var(--fs-small);
+  text-decoration: none;
+  padding: var(--spacing-xs) 0;
+  transition: color var(--duration-fast);
+}
+
+.footer__link:hover {
+  color: #ffffff;
+}
+
+.footer__text {
+  font-size: var(--fs-small);
+  color: #999999;
+  line-height: var(--lh-relaxed);
+}
+
+.footer__logo-large {
+  max-width: 140px;
+  opacity: 0.8;
+  filter: invert(1) brightness(1.2) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.footer__logo-large:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid #333333;
+  font-size: var(--fs-small);
+  color: #777777;
+}
+
+.footer__social {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.footer__social a {
+  color: #999999;
+  text-decoration: none;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  transition: color var(--duration-fast);
+}
+
+.footer__social a:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding-bottom: 80px;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--spacing-2xl);
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    text-align: center;
+  }
+
+  .footer__social {
+    flex-direction: row !important;
+    justify-content: center;
+    gap: var(--spacing-md) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* ══════════════════════════════════════════════════════════════════════════
    11. HERO
@@ -910,6 +1067,17 @@
   line-height: var(--lh-tight);
   color: var(--color-text);
   margin-bottom: var(--spacing-md);
+}
+
+/* Hero Bio (Added for index.html hero context) */
+.hero__bio {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-secondary);
+  max-width: 580px;
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
 }
 
 .hero__subtitle {
@@ -964,6 +1132,10 @@
 
   .hero__title {
     font-size: 2rem;
+  }
+
+  .hero__bio {
+    font-size: var(--fs-small);
   }
 
   .hero__pills {
@@ -1208,7 +1380,7 @@
    17. WORK SECTION (Areas of Work page)
    ══════════════════════════════════════════════════════════════════════════ */
 
-/* Work section styles are now in pages.css for edge-to-edge split layouts */
+/* Work section styles are in pages.css for edge-to-edge split layouts */
 
 /* ══════════════════════════════════════════════════════════════════════════
    18. CONTACT INFO
@@ -1264,7 +1436,7 @@
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
-   19. LOGO GRID (Associations)
+   19. LOGO GRID & COLLAB CARDS (Associations)
    ══════════════════════════════════════════════════════════════════════════ */
 
 .logo-grid {
@@ -1304,8 +1476,139 @@
   filter: grayscale(0%);
 }
 
+/* Collaboration Card Styles for index.html Associations Grid */
+.collab-logos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.collab-logo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--card-radius);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
+}
+
+.collab-logo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-plum);
+}
+
+.collab-logo-card__img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-bottom: var(--spacing-md);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.collab-logo-card:hover .collab-logo-card__img {
+  transform: scale(1.08);
+}
+
+.collab-logo-card__name {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text);
+  text-align: center;
+}
+
 /* ══════════════════════════════════════════════════════════════════════════
-   20. TOAST / NOTIFICATION
+   20. FEATURINGS PAGE COMPONENTS (Tabs, Filter Badges & Grid)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.featurings-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  margin-bottom: var(--spacing-3xl);
+  padding: 0 var(--spacing-sm);
+}
+
+.featurings-tab {
+  padding: var(--spacing-xs) var(--spacing-lg);
+  border: 1.5px solid var(--color-border-light);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  font-family: var(--font-body);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  background: #ffffff;
+  box-shadow: var(--shadow-xs);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.featurings-tab:hover {
+  border-color: var(--color-plum);
+  color: var(--color-plum);
+  transform: translateY(-1px);
+}
+
+.featurings-tab.active {
+  border-color: var(--color-plum);
+  color: var(--color-white);
+  background: var(--color-plum);
+  box-shadow: var(--shadow-sm);
+}
+
+.featurings-section {
+  margin-bottom: var(--spacing-4xl);
+  padding-bottom: var(--spacing-2xl);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.featurings-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.featurings-section__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: var(--fw-bold);
+  color: var(--color-navy);
+  margin-bottom: var(--spacing-xl);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  line-height: var(--lh-tight);
+}
+
+.featurings-section__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: rgba(125, 78, 127, 0.08);
+  color: var(--color-plum);
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.featurings-section .mentions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   21. TOAST / NOTIFICATION
    ══════════════════════════════════════════════════════════════════════════ */
 
 .toast {

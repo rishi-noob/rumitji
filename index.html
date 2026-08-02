@@ -36,12 +36,16 @@
 
   <main>
     <!-- ═══════════════ HERO ═══════════════ -->
-    <section class="hero home-hero" id="hero">
+    <section class="hero home-hero" id="hero" style="position: relative;">
       <div class="container" style="position: relative; z-index: 2;">
         <p class="hero__greeting">नमस्ते</p>
         <h1 class="hero__title">I'm Rumit Walia</h1>
+        <p class="hero__bio">
+          Creative Environmentalist, Peacebuilder & Founder of Tears of the Earth.
+          Dedicated to bridging youth empowerment, sustainability, and cross-cultural dialogue worldwide.
+        </p>
       </div>
-      <div class="hero__bottom" style="position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;">
+      <div class="hero__bottom" style="position: absolute; bottom: 4rem; left: 0; right: 0; z-index: 2;">
         <div class="container">
           <p class="hero__subtitle">Developing the Culture of Belongingness</p>
           <p class="hero__keywords">Earth | Peace | Music | Space | Dialogue</p>
@@ -49,6 +53,17 @@
       </div>
       <img src="assets/images/400900_503acb0984e04aaa9778fc3c2861884c~mv2.avif" alt="Rumit Walia"
         class="hero__portrait">
+
+      <!-- Bottom Wave Divider -->
+      <div class="hero__wave-divider"
+        style="position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 3;">
+        <svg viewBox="0 0 1440 490" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
+          style="position: relative; display: block; width: 100%; height: 100px;">
+          <path
+            d="M 0,500 L 0,187 C 56.353286471821434,220.007769145394 112.70657294364287,253.01553829078802 159,253 C 205.29342705635713,252.98446170921198 241.52699469724996,219.94561598224197 296,188 C 350.47300530275004,156.05438401775803 423.1854482673573,125.20199778024414 487,150 C 550.8145517326427,174.79800221975586 605.731212233321,255.2463928967814 651,270 C 696.268787766679,284.7536071032186 731.8897027993588,233.81243063263037 786,189 C 840.1102972006412,144.18756936736963 912.7099765692437,105.50388457269702 976,130 C 1039.2900234307563,154.49611542730298 1093.2703909236652,242.17203107658156 1141,266 C 1188.7296090763348,289.82796892341844 1230.2084597360956,249.8079911209767 1279,226 C 1327.7915402639044,202.1920088790233 1383.8957701319523,194.59600443951166 1440,187 L 1440,500 L 0,500 Z"
+            fill="var(--color-bg, #ffffff)" />
+        </svg>
+      </div>
     </section>
 
     <!-- ═══════════════ ABOUT PREVIEW — IMAGE + TEXT SPLIT ═══════════════ -->
@@ -66,7 +81,7 @@
             communities and institutions worldwide. Much of my work focuses on bringing people together across cultures
             and perspectives to foster dialogue, peacebuilding, and shared responsibility for our planet.</p>
           <p>At heart, I simply see myself as an earthling working to build a culture of belongingness between people,
-            planet, and the future. <a href="about.html"
+            planet, and the future. <a href="/pages/about.html"
               style="color: var(--color-teal); text-decoration: underline;">Learn more about me here.</a></p>
         </div>
       </div>
@@ -134,51 +149,53 @@
           <h2 class="section__title reveal">Associations</h2>
         </div>
         <div class="collab-logos-grid reveal">
-          <div class="collab-logo-card">
-            <div class="collab-logo-card__icon" style="background: linear-gradient(135deg, #2d6a4f, #4db8ab);">🌿</div>
+          <a href="https://tearsoftheearth.org" target="_blank" rel="noopener noreferrer" class="collab-logo-card">
+            <img src="assets/associations/tears-of-the-earth.png" alt="Tears of the Earth Logo"
+              class="collab-logo-card__img">
             <span class="collab-logo-card__name">Tears of the Earth</span>
-          </div>
-          <div class="collab-logo-card">
-            <div class="collab-logo-card__icon" style="background: linear-gradient(135deg, #1d3557, #457b9d);">🌍</div>
+          </a>
+          <a href="https://www.earthday.org" target="_blank" rel="noopener noreferrer" class="collab-logo-card">
+            <img src="assets/associations/earthday.jpg" alt="EARTHDAY.ORG Logo" class="collab-logo-card__img">
             <span class="collab-logo-card__name">EARTHDAY.ORG</span>
-          </div>
-          <div class="collab-logo-card">
-            <div class="collab-logo-card__icon" style="background: linear-gradient(135deg, #457b9d, #a8dadc);">🕊️</div>
+          </a>
+          <a href="https://www.globalpeace.org" target="_blank" rel="noopener noreferrer" class="collab-logo-card">
+            <img src="assets/associations/global-peace-foundation.png" alt="Global Peace Foundation Logo"
+              class="collab-logo-card__img">
             <span class="collab-logo-card__name">Global Peace Foundation</span>
-          </div>
-          <div class="collab-logo-card">
-            <div class="collab-logo-card__icon" style="background: linear-gradient(135deg, #1d3557, #e63946);">🇺🇸
-            </div>
+          </a>
+          <a href="https://in.usembassy.gov/education-culture/american-spaces/" target="_blank"
+            rel="noopener noreferrer" class="collab-logo-card">
+            <img src="assets/associations/american-center.png" alt="American Center Logo" class="collab-logo-card__img">
             <span class="collab-logo-card__name">American Center</span>
-          </div>
-          <div class="collab-logo-card">
-            <div class="collab-logo-card__icon" style="background: linear-gradient(135deg, #0077b6, #00b4d8);">🏛️</div>
+          </a>
+          <a href="https://www.unesco.org" target="_blank" rel="noopener noreferrer" class="collab-logo-card">
+            <img src="assets/associations/unesco.png" alt="UNESCO Logo" class="collab-logo-card__img">
             <span class="collab-logo-card__name">UNESCO</span>
-          </div>
-          <div class="collab-logo-card">
-            <div class="collab-logo-card__icon" style="background: linear-gradient(135deg, #7d4e7f, #a4161a);">🌐</div>
+          </a>
+          <a href="https://fest2024.ru/en" target="_blank" rel="noopener noreferrer" class="collab-logo-card">
+            <img src="assets/associations/world-youth-festival.png" alt="World Youth Festival Logo"
+              class="collab-logo-card__img">
             <span class="collab-logo-card__name">World Youth Festival</span>
-          </div>
-          <div class="collab-logo-card">
-            <div class="collab-logo-card__icon" style="background: linear-gradient(135deg, #264653, #2a9d8f);">🚀</div>
+          </a>
+          <a href="https://spacegeneration.org" target="_blank" rel="noopener noreferrer" class="collab-logo-card">
+            <img src="assets/associations/sgac.png" alt="SGAC Logo" class="collab-logo-card__img">
             <span class="collab-logo-card__name">SGAC</span>
-          </div>
-          <div class="collab-logo-card">
-            <div class="collab-logo-card__icon" style="background: linear-gradient(135deg, #0a0a0a, #333);">⭐</div>
+          </a>
+          <a href="https://bevisioneers.org" target="_blank" rel="noopener noreferrer" class="collab-logo-card">
+            <img src="assets/associations/bevisioneers.png" alt="BeVisioneers Logo" class="collab-logo-card__img">
             <span class="collab-logo-card__name">BeVisioneers</span>
-          </div>
-          <div class="collab-logo-card">
-            <div class="collab-logo-card__icon" style="background: linear-gradient(135deg, #1a1f3a, #457b9d);">🔭</div>
+          </a>
+          <a href="https://www.openspaceproject.com" target="_blank" rel="noopener noreferrer" class="collab-logo-card">
+            <img src="assets/associations/openspace-intl.png" alt="OpenSpace Intl Logo" class="collab-logo-card__img">
             <span class="collab-logo-card__name">OpenSpace Intl</span>
-          </div>
-          <div class="collab-logo-card">
-            <div class="collab-logo-card__icon" style="background: linear-gradient(135deg, #ff9933, #1d3557);">🤝</div>
+          </a>
+          <a href="https://india.mid.ru" target="_blank" rel="noopener noreferrer" class="collab-logo-card">
+            <img src="assets/associations/bharat-russia.png" alt="BHARAT РОССИЯ Logo" class="collab-logo-card__img">
             <span class="collab-logo-card__name">BHARAT РОССИЯ</span>
-          </div>
+          </a>
         </div>
       </div>
     </section>
-
 
   </main>
 

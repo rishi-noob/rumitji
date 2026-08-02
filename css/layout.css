@@ -1,6 +1,6 @@
 /* ==========================================================================
    LAYOUT — Rumit Walia Portfolio
-   Container, grid, flex utilities, and responsive system
+   Container, grid, flex utilities, section differentiation, and responsive system
    ========================================================================== */
 
 /* ── Containers ────────────────────────────────────────────────────────── */
@@ -21,30 +21,93 @@
   max-width: var(--container-wide);
 }
 
-/* ── Section ───────────────────────────────────────────────────────────── */
+/* ── Section & Visual Hierarchy ────────────────────────────────────────── */
 
 .section {
-  padding-top: var(--spacing-2xl);
-  padding-bottom: var(--spacing-2xl);
+  position: relative;
+  padding: 80px 0;
 }
 
+/* Section Size Variations */
 .section--sm {
   padding-top: var(--spacing-xl);
   padding-bottom: var(--spacing-xl);
 }
 
 .section--lg {
-  padding-top: var(--spacing-3xl);
-  padding-bottom: var(--spacing-3xl);
+  padding-top: var(--spacing-4xl);
+  padding-bottom: var(--spacing-4xl);
 }
 
+/* Section Background Themes (Distinct Section Differences) */
 .section--alt {
   background-color: var(--color-bg-alt);
 }
 
+.section--muted {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.section--accent {
+  background-color: rgba(125, 78, 127, 0.04);
+}
+
+.section--teal-tint {
+  background-color: rgba(42, 157, 143, 0.04);
+}
+
+.section--dark {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+}
+
+.section--dark .section__title,
+.section--dark .section__subtitle {
+  color: var(--color-white);
+}
+
+/* Section Separation Borders & Dividers */
+.section--bordered {
+  border-top: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.section--divided-top {
+  border-top: 1px solid var(--color-border-light);
+}
+
+.section--divided-bottom {
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+/* Section Headers & Titles */
 .section__header {
   text-align: center;
   margin-bottom: var(--spacing-2xl);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section__header--left {
+  text-align: left;
+  margin-left: 0;
+}
+
+.section__header--right {
+  text-align: right;
+  margin-right: 0;
+}
+
+.overline,
+.section__overline {
+  display: block;
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wider);
+  color: var(--color-plum);
+  margin-bottom: var(--spacing-xs);
 }
 
 .section__title {
@@ -52,6 +115,8 @@
   font-size: var(--fs-display);
   font-weight: var(--fw-bold);
   margin-bottom: var(--spacing-sm);
+  color: var(--color-text);
+  line-height: var(--lh-tight);
 }
 
 .section__subtitle {
@@ -60,6 +125,10 @@
   max-width: 600px;
   margin: 0 auto;
   line-height: var(--lh-relaxed);
+}
+
+.section__header--left .section__subtitle {
+  margin-left: 0;
 }
 
 /* ── Grid System ───────────────────────────────────────────────────────── */
@@ -85,8 +154,32 @@
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
+.grid--sidebar-left {
+  grid-template-columns: 1fr 2fr;
+}
+
+.grid--sidebar-right {
+  grid-template-columns: 2fr 1fr;
+}
+
 .grid--center {
   align-items: center;
+}
+
+.grid--start {
+  align-items: start;
+}
+
+.grid--end {
+  align-items: end;
+}
+
+.grid--gap-sm {
+  gap: var(--spacing-md);
+}
+
+.grid--gap-xl {
+  gap: var(--spacing-2xl);
 }
 
 /* ── Flex Utilities ────────────────────────────────────────────────────── */
@@ -108,9 +201,17 @@
   justify-content: center;
 }
 
+.flex--align-center {
+  align-items: center;
+}
+
 .flex--between {
   align-items: center;
   justify-content: space-between;
+}
+
+.flex--justify-end {
+  justify-content: flex-end;
 }
 
 .flex--gap-sm {
@@ -129,13 +230,21 @@
   gap: var(--spacing-xl);
 }
 
-/* ── Two-Column Layout ─────────────────────────────────────────────────── */
+/* ── Two-Column Split Layouts ──────────────────────────────────────────── */
 
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-2xl);
   align-items: center;
+}
+
+.split--top {
+  align-items: start;
+}
+
+.split--bottom {
+  align-items: end;
 }
 
 .split--reverse {
@@ -244,7 +353,7 @@
   padding-right: var(--spacing-xl);
 }
 
-/* ── Responsive ────────────────────────────────────────────────────────── */
+/* ── Responsive System & Breakpoints ───────────────────────────────────── */
 
 /* Fluid Typography Base */
 :root {
@@ -261,15 +370,20 @@
 }
 
 @media (max-width: 1024px) {
-  .grid--3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
-  .grid--4 {
+  .grid--3,
+  .grid--4,
+  .grid--sidebar-left,
+  .grid--sidebar-right {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .section {
+    padding-top: var(--spacing-2xl);
+    padding-bottom: var(--spacing-2xl);
+  }
+
+  .section--lg {
     padding-top: var(--spacing-3xl);
     padding-bottom: var(--spacing-3xl);
   }
@@ -278,13 +392,14 @@
 @media (max-width: 768px) {
   .container {
     padding-left: var(--spacing-lg);
-    /* Maintain decent breathing room */
     padding-right: var(--spacing-lg);
   }
 
   .grid--2,
   .grid--3,
-  .grid--4 {
+  .grid--4,
+  .grid--sidebar-left,
+  .grid--sidebar-right {
     grid-template-columns: 1fr;
   }
 
@@ -301,11 +416,11 @@
   }
 
   .section {
-    padding-top: var(--spacing-2xl);
-    padding-bottom: var(--spacing-2xl);
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
   }
 
-  .section-header {
+  .section__header {
     margin-bottom: var(--spacing-xl);
   }
 
@@ -321,22 +436,24 @@
   }
 
   .section {
-    padding-top: var(--spacing-xl);
-    padding-bottom: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
   }
 }
 
 /* Visibility Utilities */
-.hide-mobile {
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
+  .hide-mobile {
     display: none !important;
   }
 }
 
 .show-mobile {
   display: none !important;
+}
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
+  .show-mobile {
     display: block !important;
   }
 }
