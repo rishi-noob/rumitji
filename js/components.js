@@ -10,12 +10,12 @@
   /* ── Navigation Config ──────────────────────────────────────────────── */
 
   const NAV_LINKS = [
-    { label: 'Home',           href: 'index.html',          page: 'home' },
-    { label: 'About Me',       href: 'about.html',          page: 'about' },
-    { label: 'Areas of Work',  href: 'areas-of-work.html',  page: 'areas-of-work' },
-    { label: 'Featurings',     href: 'featurings.html',     page: 'featurings' },
+    { label: 'Home', href: 'index.html', page: 'home' },
+    { label: 'About Me', href: 'about.html', page: 'about' },
+    { label: 'Areas of Work', href: 'areas-of-work.html', page: 'areas-of-work' },
+    { label: 'Featurings', href: 'featurings.html', page: 'featurings' },
     { label: 'Events Tracker', href: 'events-tracker.html', page: 'events-tracker' },
-    { label: 'Contact',        href: 'contact.html',        page: 'contact' }
+    { label: 'Contact', href: 'contact.html', page: 'contact' }
   ];
 
   /* ── Associations Config ────────────────────────────────────────────── */
@@ -34,14 +34,14 @@
   ];
 
   const SOCIAL_LINKS = [
-    { label: 'WhatsApp',    href: 'https://wa.me/919654940577',               icon: 'whatsapp' },
-    { label: 'Instagram',   href: 'https://www.instagram.com/rumitwalia',     icon: 'instagram' },
-    { label: 'Facebook',    href: 'https://www.facebook.com/rumitwalia',      icon: 'facebook' },
-    { label: 'LinkedIn',    href: 'https://www.linkedin.com/in/rumitwalia',   icon: 'linkedin' },
-    { label: 'X (Twitter)', href: 'https://x.com/rumitwalia',                 icon: 'x' },
-    { label: 'Telegram',    href: 'https://t.me/rumitwalia',                  icon: 'telegram' },
-    { label: 'VK',          href: 'https://vk.com/rumitwalia',                icon: 'vk' },
-    { label: 'YouTube',     href: 'https://www.youtube.com/@rumitwalia',      icon: 'youtube' }
+    { label: 'WhatsApp', href: 'https://wa.me/919654940577', icon: 'whatsapp' },
+    { label: 'Instagram', href: 'https://www.instagram.com/rumitwalia', icon: 'instagram' },
+    { label: 'Facebook', href: 'https://www.facebook.com/rumitwalia', icon: 'facebook' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/rumitwalia', icon: 'linkedin' },
+    { label: 'X (Twitter)', href: 'https://x.com/rumitwalia', icon: 'x' },
+    { label: 'Telegram', href: 'https://t.me/rumitwalia', icon: 'telegram' },
+    { label: 'VK', href: 'https://vk.com/rumitwalia', icon: 'vk' },
+    { label: 'YouTube', href: 'https://www.youtube.com/@rumitwalia', icon: 'youtube' }
   ];
 
   const SOCIAL_ICONS = {
@@ -131,10 +131,10 @@
 
     const socialTextLinks = [
       { label: 'Instagram', href: 'https://www.instagram.com/rumitwalia' },
-      { label: 'LinkedIn',  href: 'https://www.linkedin.com/in/rumitwalia' },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/rumitwalia' },
       { label: 'X (Twitter)', href: 'https://x.com/rumitwalia' },
-      { label: 'YouTube',   href: 'https://www.youtube.com/@rumitwalia' },
-      { label: 'Telegram',  href: 'https://t.me/rumitwalia' }
+      { label: 'YouTube', href: 'https://www.youtube.com/@rumitwalia' },
+      { label: 'Telegram', href: 'https://t.me/rumitwalia' }
     ];
 
     const socialHTML = socialTextLinks.map(link =>

@@ -23,7 +23,8 @@
   color: var(--color-text);
 }
 
-h1, .h1 {
+h1,
+.h1 {
   font-family: var(--font-display);
   font-size: var(--fs-h1);
   font-weight: var(--fw-bold);
@@ -32,7 +33,8 @@ h1, .h1 {
   color: var(--color-text);
 }
 
-h2, .h2 {
+h2,
+.h2 {
   font-family: var(--font-display);
   font-size: var(--fs-h2);
   font-weight: var(--fw-semibold);
@@ -40,7 +42,8 @@ h2, .h2 {
   color: var(--color-text);
 }
 
-h3, .h3 {
+h3,
+.h3 {
   font-family: var(--font-body);
   font-size: var(--fs-h3);
   font-weight: var(--fw-semibold);
@@ -48,7 +51,8 @@ h3, .h3 {
   color: var(--color-text);
 }
 
-h4, .h4 {
+h4,
+.h4 {
   font-family: var(--font-body);
   font-size: var(--fs-body);
   font-weight: var(--fw-semibold);
@@ -59,7 +63,8 @@ h4, .h4 {
 /* ── Body Text ─────────────────────────────────────────────────────────── */
 
 .body-lg {
-  font-size: 1.125rem; /* 18px */
+  font-size: 1.125rem;
+  /* 18px */
   line-height: var(--lh-relaxed);
 }
 
@@ -170,7 +175,8 @@ h4, .h4 {
   color: var(--color-teal-dark);
 }
 
-.prose ul, .prose ol {
+.prose ul,
+.prose ol {
   margin: var(--spacing-md) 0;
   padding-left: var(--spacing-lg);
 }
@@ -199,7 +205,8 @@ h4, .h4 {
 
 /* ── Mono / Code ───────────────────────────────────────────────────────── */
 
-code, .code {
+code,
+.code {
   font-family: var(--font-mono);
   font-size: 0.9em;
   background-color: var(--color-gray-lightest);
@@ -211,24 +218,31 @@ code, .code {
 
 @media (max-width: 768px) {
   .display-xl {
-    font-size: 2.25rem; /* 36px on mobile */
+    font-size: 2.25rem;
+    /* 36px on mobile */
   }
 
   .display {
-    font-size: 1.75rem; /* 28px on mobile */
+    font-size: 1.75rem;
+    /* 28px on mobile */
   }
 
-  h1, .h1 {
-    font-size: 1.5rem; /* 24px on mobile */
+  h1,
+  .h1 {
+    font-size: 1.5rem;
+    /* 24px on mobile */
   }
 
-  h2, .h2 {
-    font-size: 1.25rem; /* 20px on mobile */
+  h2,
+  .h2 {
+    font-size: 1.25rem;
+    /* 20px on mobile */
   }
 }
 
 @media (max-width: 480px) {
   .display-xl {
-    font-size: 1.875rem; /* 30px on small mobile */
+    font-size: 1.875rem;
+    /* 30px on small mobile */
   }
 }

@@ -33,13 +33,13 @@ function initContactForm(form) {
       // Gather form data
       const formData = new FormData(form);
       const data = Object.fromEntries(formData);
-      
+
       // Construct full name for fallback/logging
       const fullName = `${data.firstName || ''} ${data.lastName || ''}`.trim();
 
       // Try Formspree or mailto fallback
       const action = form.getAttribute('action');
-      
+
       if (action && action.includes('formspree') && !action.includes('YOUR_FORM_ID')) {
         const response = await fetch(action, {
           method: 'POST',
@@ -133,7 +133,7 @@ function validateField(field) {
 
 function showFieldError(field, message) {
   field.classList.add('error');
-  
+
   // Remove existing error
   const existing = field.parentElement.querySelector('.form-error');
   if (existing) existing.remove();

@@ -68,7 +68,7 @@ function initHeaderScroll() {
 
   window.addEventListener('scroll', () => {
     const currentScroll = window.scrollY;
-    
+
     if (currentScroll > 50) {
       header.classList.add('scrolled');
     } else {
@@ -87,9 +87,9 @@ function setActiveNavLink() {
 
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
-    if (href === currentPage || 
-        (currentPage === '' && href === 'index.html') ||
-        (currentPage === 'index.html' && href === 'index.html')) {
+    if (href === currentPage ||
+      (currentPage === '' && href === 'index.html') ||
+      (currentPage === 'index.html' && href === 'index.html')) {
       link.classList.add('active');
     }
   });
@@ -99,7 +99,7 @@ function setActiveNavLink() {
 
 function initRevealAnimations() {
   const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
-  
+
   if (!reveals.length) return;
 
   const observer = new IntersectionObserver((entries) => {
@@ -109,11 +109,11 @@ function initRevealAnimations() {
         const siblings = entry.target.parentElement.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
         const siblingIndex = Array.from(siblings).indexOf(entry.target);
         const delay = siblingIndex * 100;
-        
+
         setTimeout(() => {
           entry.target.classList.add('revealed');
         }, delay);
-        
+
         observer.unobserve(entry.target);
       }
     });
@@ -130,7 +130,7 @@ function initRevealAnimations() {
 function initScrollEffects() {
   // Counter animation
   const counters = document.querySelectorAll('[data-counter]');
-  
+
   if (counters.length) {
     const counterObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -155,7 +155,7 @@ function animateCounter(element) {
   function update(currentTime) {
     const elapsed = currentTime - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    
+
     // Ease out cubic
     const eased = 1 - Math.pow(1 - progress, 3);
     const current = startValue + (target - startValue) * eased;
@@ -172,8 +172,8 @@ function animateCounter(element) {
       requestAnimationFrame(update);
     } else {
       // Set final value
-      element.textContent = element.dataset.display || (target >= 1000 
-        ? (target / 1000) + 'K' + suffix 
+      element.textContent = element.dataset.display || (target >= 1000
+        ? (target / 1000) + 'K' + suffix
         : target + suffix);
     }
   }
@@ -184,10 +184,10 @@ function animateCounter(element) {
 /* ── Smooth Scroll for Anchor Links ────────────────────────────────────── */
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
+  anchor.addEventListener('click', function (e) {
     const targetId = this.getAttribute('href');
     if (targetId === '#') return;
-    
+
     const target = document.querySelector(targetId);
     if (target) {
       e.preventDefault();
@@ -223,7 +223,7 @@ function initParallax() {
       // Calculate how far the strip is through the viewport (-1 to 1)
       const center = rect.top + rect.height / 2;
       const offset = (center - viewportH / 2) / viewportH;
-      
+
       // Translate the image (parallax factor: 40px range)
       const translate = offset * 40;
       img.style.transform = `translateY(${translate}px)`;

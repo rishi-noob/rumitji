@@ -43,16 +43,16 @@ function renderEventsFromData() {
     const eventsHTML = data.events.length
       ? `<ul class="events-list">
           ${data.events.map(evt => {
-            // Try to extract a date prefix (e.g. "Jan", "Feb 28", "Mar 22–31")
-            const dateMatch = evt.match(/^([A-Z][a-z]{2}(?:\s?\d{1,2})?(?:–\d{1,2})?(?:–[A-Z][a-z]{2}\s?\d{1,2})?)\s*–\s*/);
-            if (dateMatch) {
-              const date = dateMatch[1];
-              const rest = evt.substring(dateMatch[0].length);
-              return `<li><span class="event-date">${date}</span>${rest}</li>`;
-            }
-            // For pre-2015 style entries without dates
-            return `<li>${evt}</li>`;
-          }).join('')}
+        // Try to extract a date prefix (e.g. "Jan", "Feb 28", "Mar 22–31")
+        const dateMatch = evt.match(/^([A-Z][a-z]{2}(?:\s?\d{1,2})?(?:–\d{1,2})?(?:–[A-Z][a-z]{2}\s?\d{1,2})?)\s*–\s*/);
+        if (dateMatch) {
+          const date = dateMatch[1];
+          const rest = evt.substring(dateMatch[0].length);
+          return `<li><span class="event-date">${date}</span>${rest}</li>`;
+        }
+        // For pre-2015 style entries without dates
+        return `<li>${evt}</li>`;
+      }).join('')}
         </ul>`
       : '<p class="events-empty">Events to be updated soon.</p>';
 
@@ -122,7 +122,7 @@ function initAccordion() {
 
 function initParallax() {
   const parallaxElements = document.querySelectorAll('[data-parallax]');
-  
+
   if (!parallaxElements.length) return;
 
   // Skip parallax on reduced motion preference
@@ -146,11 +146,11 @@ function initParallax() {
 
 function initEventsTabs() {
   const yearBtns = document.querySelectorAll('.events-year-nav__btn');
-  
+
   yearBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const year = btn.dataset.year;
-      
+
       // Update active button
       yearBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
@@ -179,7 +179,7 @@ function initEventsTabs() {
 
 function initLazyImages() {
   const images = document.querySelectorAll('img[data-src]');
-  
+
   if (!images.length) return;
 
   const imageObserver = new IntersectionObserver((entries) => {

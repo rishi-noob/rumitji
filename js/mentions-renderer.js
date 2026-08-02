@@ -26,11 +26,11 @@ const MENTION_GRADIENTS = [
 /* ── Category badge color map ─────────────────────────────────────────── */
 
 const CATEGORY_COLORS = {
-  'Magazine':          'var(--color-plum)',
-  'International Body':'var(--color-teal)',
-  'News':              'var(--color-coral)',
-  'Organization':      'var(--color-environment)',
-  'Media':             'var(--color-peace)'
+  'Magazine': 'var(--color-plum)',
+  'International Body': 'var(--color-teal)',
+  'News': 'var(--color-coral)',
+  'Organization': 'var(--color-environment)',
+  'Media': 'var(--color-peace)'
 };
 
 function renderMentions() {
